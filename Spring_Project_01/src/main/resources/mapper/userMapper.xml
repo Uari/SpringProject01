@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bh.DAO.IF_userDAO">
+
+	<select id="userOne" resultType="com.bh.VO.UserVO">
+		select * from if_user where u_id=#{id}
+	</select>
+
+	<insert id="insert">
+		insert into if_user values(#{u_id},#{u_pwd},#{address},#{p_num},0)
+	</insert>
+
+</mapper>

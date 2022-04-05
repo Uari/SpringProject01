@@ -1,0 +1,54 @@
+@charset "UTF-8";
+body{
+	background-color: #EBFBFF;
+}
+
+h2 {
+	text-align: center;
+	font-weight: bold;
+}
+
+.star-rating {
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:2em;
+  justify-content:space-around;
+  padding-bottom: 0.4em; 
+  text-align:center;
+  width:5em;
+  margin: auto;
+}
+
+.star-rating input {
+  display:none;
+}
+
+.star-rating label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+  color: gold;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color:#fc0;
+}
+
+#inputBTN input{
+	border: none;
+	border-radius: 10px;
+	background-color: #FF98A3;
+	font-size: 20px;
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+	border: groove ;
+}
+#inputBTN input:hover {
+	background-color: #FF7A85;
+	border: ridge ;
+	
+}

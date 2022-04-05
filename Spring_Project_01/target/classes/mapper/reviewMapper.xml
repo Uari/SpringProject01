@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bh.DAO.IF_reviewDAO">
+
+<select id="reviewSelectAll" resultType="com.bh.VO.ReviewVO">
+	select * from 
+				(select rownum as num, b.*  from 
+				(select * from review order by r_date desc) b)
+			 where num between #{startNo}+1 and #{startNo} + #{perPageNum}
+</select>
+<select id="reviewcnt" resultType="int">
+		select count(*) from review
+	</select>
+
+<insert id="reviewInsert">
+	insert into review values(review_seq.nextval,#{u_id}, #{r_memo}, sysdate, #{r_grade})
+</insert>
+<delete id="reviewDel">
+	delete from review where no = #{no}
+</delete>
+
+</mapper>

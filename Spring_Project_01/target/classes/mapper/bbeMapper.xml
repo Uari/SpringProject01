@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bh.DAO.IF_BBEDAO">
+
+<select id="bbeselectAll" resultType="com.bh.VO.BBEVO">
+	select * from bbe
+</select>
+<select id="selectOne" resultType="com.bh.VO.BBEVO">
+	select * from bbe where taxi_no = #{no}
+</select>
+<select id="bbeselectOne" resultType="com.bh.VO.BBEVO">
+	select * from bbe where u_id = #{u_id}
+</select>
+<update id="reservationtaxi">
+	update bbe set state = '사용중', u_id = #{u_id} where taxi_no = #{taxi_no}
+</update>
+<update id="returntaxi">
+	update bbe set state = '사용가능', u_id = null where u_id = #{u_id}
+</update>
+
+
+<select id="history" resultType="com.bh.VO.JoinVO">
+	select a.u_id, a.point, b.taxi_kind, b.cnt, b.price
+	from if_user a, bbe b
+	where a.u_id=b.u_id and a.u_id = #{u_id}
+</select>
+
+</mapper>
